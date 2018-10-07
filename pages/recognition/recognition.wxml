@@ -5,6 +5,7 @@
   <view class='uploader-text' bindtap='upload'>
     <text>上传图片</text>
   </view>
+  <!--图片预览-->
   <view class='uploader-container' ws:if="{{imgUrl}}">
     <image class='uploader-image' src='{{imgUrl}}' mode='aspectFit' bindtap='previewImg'></image>
   </view>

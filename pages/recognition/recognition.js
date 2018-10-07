@@ -49,11 +49,23 @@ Page({
     */
 
     var filePath = this.data.imgUrl
+    console.log('1:'+filePath)
+    wx.getFileSystemManager().readFile({
+      filePath:filePath[0],
+      encoding:'base64',
+      success:res=>{
+        //console.log('data:image/png;base64,'+res.data)
+        console.log('2:'+res.data.filePath)
+      }
+    })
+
+    let base64 = wx.getFileSystemManager().readFileSync(filePath[0],'base64')
+    //console.log(base64)
 
     //upload上传
-    wx.uploadFile({
-      url: 'https://aip.baidubce.com/rest/2.0/ocr/v1/receipt?grant_type=client_credentials&client_id=ytL79DZ2BiYAB5UqtB2rgTrc&client_secret=ni420BIXWAXRm0rozRN7GlMxjuAYei9P',
-      filePath: filePath[0],
+    /*wx.uploadFile({
+      url: 'https://aip.baidubce.com/rest/2.0/ocr/v1/general?access_token=24.c0d34d724aba71730680a2a870cc7019.2592000.1541513283.282335-11659918',
+      filePath:filePath[0],
       name: 'file',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -79,18 +91,19 @@ Page({
       complete: function () {
 
       }
-    })
+    })*/
 
     //request请求
-    /*wx.request({
-      url: 'https://aip.baidubce.com/rest/2.0/ocr/v1/receipt?grant_type=client_credentials&client_id=ytL79DZ2BiYAB5UqtB2rgTrc&client_secret=ni420BIXWAXRm0rozRN7GlMxjuAYei9P',
-      data: this.data.imgUrl/jpg;base64,
+    wx.request({
+      url: 'https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=24.c0d34d724aba71730680a2a870cc7019.2592000.1541513283.282335-11659918',
+      data: {image:base64},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
       },
 
       success: function (res) {
+        console.log('image='+base64)
         console.log("上传图片成功")
         console.log(res.data)
         console.log("返回成功的数据" + JSON.stringify(res.data))
@@ -106,7 +119,7 @@ Page({
       complete: function () {
 
       }
-    })*/
+    })
 
   }
 
