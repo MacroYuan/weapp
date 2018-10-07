@@ -1,0 +1,34 @@
+<!--pages/recognition/recognition.wxml-->
+<view class='uploader'>
+
+<!--待编辑-->
+  <view class='uploader-text' bindtap='upload'>
+    <text>上传图片</text>
+  </view>
+  <view class='uploader-container' ws:if="{{imgUrl}}">
+    <image class='uploader-image' src='{{imgUrl}}' mode='aspectFit' bindtap='previewImg'></image>
+  </view>
+  <!--
+  <view class="uploader-container" wx:if="{{imgUrl}}">
+            <image
+                class="uploader-image"
+                src="{{imgUrl}}"
+                mode="aspectFit"
+                bindtap="previewImg"
+            ></image>
+        </view>
+  -->
+<!--待编辑-->
+
+</view>
+
+<!--提示-->
+<view class='tips'>
+  <view class='tips-text'>请上传jpg格式的图片</view>
+</view>
+
+<view class='uploader-button'>
+  <button type='primary' bindtap='callingAPI'>
+    <text class='button-text'>开始识别</text>
+  </button>
+</view>

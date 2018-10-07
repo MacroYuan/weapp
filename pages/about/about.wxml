@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="about">
+  <text>产品名称：车票识别系统</text>
+  <text>数据来源：百度云API</text>
+  <text>开发时间：2018年9月</text>
+  </view>
+  <view class="about aboutme">
+    <text class="title">作者</text>
+    <text>董林 马金霄 蒲春宇</text>
+
+    <text class="title">GitHub</text>
+    <text>https://github.com/MacroYuan/WeixinApp</text>
+  </view>
+</view>
